@@ -9,8 +9,6 @@ const ShortenForm: React.FC = () => {
     e.preventDefault();
     if (!url) return;
 
-    //send post request containing long url
-    //get short url back in response
     try {
       const response = await fetch("/api/shorten", {
         method: "POST",
@@ -21,13 +19,14 @@ const ShortenForm: React.FC = () => {
       const data = await response.json();
       console.log("this is the data: ", data);
 
-      //if the response is valid: set the shortURL to the response value
       if (response.ok) {
         setShortCode(data.shortCode);
       } else {
+        console.log("uh oh!");
         console.error(data.message);
       }
     } catch (error) {
+      console.log("uh oh!2");
       console.error(error);
     }
   };
@@ -45,7 +44,7 @@ const ShortenForm: React.FC = () => {
       </form>
       {shortCode && (
         <p>
-          Your Short URL: {window.location.origin}/{shortCode}
+          Your Short URL: {"http:/"}/{shortCode}
         </p>
       )}
     </div>

@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: urlshortener_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: urlshortener_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/urlshortener
+      - PORT=3000
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: urlshortener_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
