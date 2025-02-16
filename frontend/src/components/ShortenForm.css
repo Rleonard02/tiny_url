@@ -1,10 +1,13 @@
+
+
 .urlForm {
     background-color: red;
-    height: 5rem;
+    height: 15rem;
     display:flex;
-    padding:5%;
+    padding:1%;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     /* justify-content: center; */
 }
 
@@ -18,6 +21,8 @@ button {
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    width: 25%;
+    align-items: center;
   }
   button:hover {
     border-color: #646cff;
@@ -25,4 +30,17 @@ button {
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px ;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
   }
