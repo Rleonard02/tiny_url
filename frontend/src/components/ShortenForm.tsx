@@ -44,7 +44,10 @@ const ShortenForm: React.FC = () => {
       </form>
       {shortCode && (
         <p>
-          Your Short URL: {"http:/"}/{shortCode}
+          Your Short URL:{" "}
+          <a href={`http://localhost:8080/api/${shortCode}`}>
+            {`http://localhost:8080/api/${shortCode}`}
+          </a>
         </p>
       )}
     </div>

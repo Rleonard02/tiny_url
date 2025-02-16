@@ -30,6 +30,7 @@ router.post("/shorten", async (req, res) => {
         //create new record
         const newURL = new URL({originalURL, shortCode});
         await newURL.save();
+        console.log("url saved");
 
         //send success response
         return res.status(201).json({
@@ -48,6 +49,7 @@ router.post("/shorten", async (req, res) => {
 //GET /:shortCode
 router.get("/:shortCode", async (req, res) => {
     try{
+        console.log("endpoint accessed")
         const {shortCode} = req.params;
         const urlDoc = await URL.findOne({shortCode});
 
