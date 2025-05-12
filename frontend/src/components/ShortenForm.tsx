@@ -77,7 +77,7 @@ const ShortenForm: React.FC = () => {
             },
             // Focus only
             "&.Mui-focused fieldset": {
-              borderColor: "primary",
+              borderColor: "#646cff",
             },
             // **Hover + Focus** (both hovered and focused)
             "&:hover.Mui-focused fieldset": {
